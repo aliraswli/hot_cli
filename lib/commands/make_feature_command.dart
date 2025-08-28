@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:path/path.dart' as p;
 import 'package:mason/mason.dart';
 import 'package:args/command_runner.dart';
 
@@ -38,7 +39,7 @@ class _FeatureCommand extends Command<int> {
     final isResource = args.contains('--resource');
 
     final generator = await MasonGenerator.fromBrick(
-      Brick.path('bricks/feature'),
+      Brick.path(p.join(Directory.current.path, 'lib', 'bricks', 'feature')),
     );
 
     final target = DirectoryGeneratorTarget(Directory.current);
